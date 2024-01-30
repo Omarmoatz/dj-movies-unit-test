@@ -13,7 +13,7 @@ class Show(models.Model):
     title = models.CharField(max_length=100,default='default_show', blank=True)
     description = models.TextField(max_length=5000,default='default_description', blank=True)
     image = models.ImageField( upload_to='show/',blank=True, null=True)
-    rating = models.DecimalField( max_digits=4, decimal_places=2)
+    rating = models.DecimalField( max_digits=4, decimal_places=2, default=0 ,blank=True)
     type = models.CharField(max_length=50,choices=SHOW_CHOICES, blank=True)
     category = models.ForeignKey('Category', related_name='category_show', on_delete=models.SET_DEFAULT,default='default_ctg')
     main_actor = models.ForeignKey('Actor', related_name='mainActor_show', on_delete=models.SET_DEFAULT,default='somebody')
