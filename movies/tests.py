@@ -1,4 +1,6 @@
 from django.test import TestCase
+from django.core.files.uploadedfile import SimpleUploadedFile
+
 from .models import Show,Category,Actor
 
 class ShowTest(TestCase):
@@ -6,13 +8,13 @@ class ShowTest(TestCase):
     def setUp_test_data(cls):
         Category.objects.create(
             title = 'ctg1',
-            image = ''
+            image = SimpleUploadedFile(name='testImage',content=open('\Users\omarm\Pictures\New folder\Screenshot 2024-01-08 154625.png','rb').read(),content_type='image/png')
         )
         Actor.objects.create(
             name = 'actor1',
             age = 25,
             gender = 'Female', 
-            image = ''
+            image = SimpleUploadedFile(name='TestImage', content=open('\Users\omarm\Pictures\New folder\Screenshot 2024-01-08 154625.png','rb').read(), content_type='image/png')
         )
         Show.objects.create(
             user = 'admin',
@@ -23,7 +25,7 @@ class ShowTest(TestCase):
             category = 'ctg1',
             main_actor = 'actor1',
             sub_actor = 'actor1',
-            image = ''
+            image = SimpleUploadedFile(name='TestImage', content=open('\Users\omarm\Pictures\New folder\Screenshot 2024-01-08 154625.png','rb').read(), content_type='image/png')
         )
 
     def check_title_max_length(self):
