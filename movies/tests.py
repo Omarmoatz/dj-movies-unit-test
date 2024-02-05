@@ -28,6 +28,7 @@ class ShowTest(TestCase):
             image = SimpleUploadedFile(name='TestImage', content=open('\Users\omarm\Pictures\New folder\Screenshot 2024-01-08 154625.png','rb').read(), content_type='image/png')
         )
 
+    # Test Models
     def check_title_max_length(self):
         show = Show.objects.get(id=1)
         field = show._meta.get_field('title').max_length
@@ -37,3 +38,9 @@ class ShowTest(TestCase):
         show = Show.objects.get(id=1)
         field = show._meta.get_field('description').max_length
         TestCase.assertEqual(field,5000)
+
+    # Test Views
+    def check_view_url_exists_at_desired_location(self):
+        url = self.client.get('/movie/viewSet/')
+        TestCase.assertEqual(url.status_code, 200)
+        

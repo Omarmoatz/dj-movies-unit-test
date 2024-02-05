@@ -21,11 +21,7 @@ def shows_detail(request,pk):
     return Response({'data':serializer}
                     ,status=status.HTTP_200_OK)
 
-class ShowViewSets(viewsets.ViewSet):
+class ShowViewSets(viewsets.ModelViewSet):
     queryset = Show.objects.all()
     serializer_class = ShowSerializer
     
-    # def list(self):
-    #     serializer = ShowSerializer(self.queryset,many=True).data
-    #     return Response({'data':serializer}
-    #                 ,status=status.HTTP_200_OK)
