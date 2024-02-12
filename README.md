@@ -1,2 +1,2 @@
 # dj-unit-test
-django app useing unit test on it
+ is a Django application that focuses on unit testing. The purpose of this project is to demonstrate how to write and implement unit tests for a Django application. The repository contains code and resources related to unit testing in Python, Django, and REST API development. It serves as a learning resource for developers who want to understand and practice unit testing in the context of Django applications. The repository includes sample code, README.md documentation, and an analysis.md file that provides insights into the unit testing process.
